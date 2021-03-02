@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IPublisher.AboutUsController">
+   <children>
+      <Label alignment="CENTER" layoutX="111.0" layoutY="52.0" prefHeight="17.0" prefWidth="77.0" text="iPublisher" />
+      <Label alignment="CENTER" layoutX="71.0" layoutY="118.0" prefHeight="17.0" prefWidth="158.0" text="Copyright @2021 SE2203b" />
+      <Label layoutX="114.0" layoutY="173.0" text="Anuj Kulkarni" textFill="#dd0404" />
+      <Button fx:id="closeButton" layoutX="229.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#handleCLoseButtonAction" text="Ok" />
+   </children>
+</AnchorPane>

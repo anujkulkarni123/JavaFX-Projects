@@ -20,7 +20,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root);
 
-        stage.getIcons().add(new Image("file:src/TennisBallGames/WesternLogo.png"));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("WesternLogo.png")));
         stage.setTitle("Tennis Ball Games");
 
         stage.setScene(scene);

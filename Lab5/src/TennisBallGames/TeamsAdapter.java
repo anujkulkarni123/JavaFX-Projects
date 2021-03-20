@@ -88,16 +88,19 @@ public class TeamsAdapter {
         ResultSet rs;
 
         // Create a Statement object
-        
+        Statement statement = connection.createStatement();
 
         // Create a string with a SELECT statement
-        
+        String statementText = "SELECT TeamName FROM Teams";
 
         // Execute the statement and return the result
-        
+        ResultSet set = statement.executeQuery(statementText);
         
         // loop for the all rs rows and update list
-        
+        while (set.next()) {
+            list.add(set.getString(1));
+        }
+
         return list;
     }
 
@@ -105,8 +108,34 @@ public class TeamsAdapter {
         // Create a Statement object
         Statement stmt = connection.createStatement();
         ResultSet rs;
-        
+
         // Write your code here for Task #4
-        
+        rs = stmt.executeQuery("SELECT * FROM Teams WHERE TeamName = '" + hTeam + "'");
+        if (rs.next()) {
+            if (hScore == vScore) {
+                int currentTies = rs.getInt(4);
+                stmt.executeUpdate("UPDATE Teams SET Ties = " + (currentTies + 1) + " WHERE TeamName = '" + hTeam + "'");
+            } else if (hScore > vScore) {
+                int currentWins = rs.getInt(2);
+                stmt.executeUpdate("UPDATE Teams SET Wins = " + (currentWins + 1) + " WHERE TeamName = '" + hTeam + "'");
+            } else {
+                int currentLosses = rs.getInt(3);
+                stmt.executeUpdate("UPDATE Teams SET Losses = " + (currentLosses +  1) + " WHERE TeamName = '" + hTeam + "'");
+            }
+        }
+
+        rs = stmt.executeQuery("SELECT * FROM Teams WHERE TeamName = '" + vTeam + "'");
+        if (rs.next()) {
+            if (hScore == vScore) {
+                int currentTies = rs.getInt(4);
+                stmt.executeUpdate("UPDATE Teams SET Ties = " + (currentTies + 1) + " WHERE TeamName = '" + vTeam + "'");
+            } else if (vScore > hScore) {
+                int currentWins = rs.getInt(2);
+                stmt.executeUpdate("UPDATE Teams SET Wins = " + (currentWins + 1) + " WHERE TeamName = '" + vTeam + "'");
+            } else {
+                int currentLosses = rs.getInt(3);
+                stmt.executeUpdate("UPDATE Teams SET Losses = " + (currentLosses +  1) + " WHERE TeamName = '" + vTeam + "'");
+            }
+        }
     }
 }

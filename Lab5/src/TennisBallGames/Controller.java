@@ -113,24 +113,25 @@ public class Controller implements Initializable {
     public void addMatch() throws Exception {
         // Toggle the comments below after you finish the requirement of Task #3
 
-//        // create Teams model
-//        teams = new TeamsAdapter(conn, false);
-//        // create matches model
-//        matches = new MatchesAdapter(conn, false);
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddMatch.fxml"));
-//        Parent addMatch = (Parent) fxmlLoader.load();
-//        AddMatchController addMatchController = (AddMatchController) fxmlLoader.getController();
-//        addMatchController.setModel(matches, teams);
-//
-//        Scene scene = new Scene(addMatch);
-//        Stage stage = new Stage();
-//
-//        stage.setScene(scene);
-//        stage.getIcons().add(new Image("file:src/TennisBallGames/WesternLogo.png"));
-//        stage.setTitle("Add New Match");
-//        stage.initModality(Modality.APPLICATION_MODAL);
-//
-//        stage.show();
+          // create Teams model
+          teams = new TeamsAdapter(conn, false);
+          // create matches model
+          matches = new MatchesAdapter(conn, false);
+          FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddMatch.fxml"));
+          Parent addMatch = (Parent) fxmlLoader.load();
+
+          AddMatchController addMatchController = (AddMatchController) fxmlLoader.getController();
+          addMatchController.setModel(matches, teams);
+
+          Scene scene = new Scene(addMatch);
+          Stage stage = new Stage();
+
+          stage.setScene(scene);
+          stage.getIcons().add(new Image(getClass().getResourceAsStream("WesternLogo.png")));
+          stage.setTitle("Add New Match");
+          stage.initModality(Modality.APPLICATION_MODAL);
+
+          stage.show();
     }
 
     @FXML
@@ -138,23 +139,23 @@ public class Controller implements Initializable {
         // Toggle the comments below after you finish the requirement of Task #4
 
 //        // create Teams model
-//        teams = new TeamsAdapter(conn, false);
+          teams = new TeamsAdapter(conn, false);
 //        // create matches model
-//        matches = new MatchesAdapter(conn, false);
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddScore.fxml"));
-//        Parent addScore = (Parent) fxmlLoader.load();
-//        AddScoreController addScoreController = (AddScoreController) fxmlLoader.getController();
-//        addScoreController.setModel(matches, teams);
-//
-//        Scene scene = new Scene(addScore);
-//        Stage stage = new Stage();
-//
-//        stage.setScene(scene);
-//        stage.getIcons().add(new Image("file:src/TennisBallGames/WesternLogo.png"));
-//        stage.setTitle("Add Match Score");
-//        stage.initModality(Modality.APPLICATION_MODAL);
-//
-//        stage.show();
+          matches = new MatchesAdapter(conn, false);
+          FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddScore.fxml"));
+          Parent addScore = (Parent) fxmlLoader.load();
+          AddScoreController addScoreController = (AddScoreController) fxmlLoader.getController();
+          addScoreController.setModel(matches, teams);
+
+          Scene scene = new Scene(addScore);
+          Stage stage = new Stage();
+
+          stage.setScene(scene);
+          stage.getIcons().add(new Image("file:src/TennisBallGames/WesternLogo.png"));
+          stage.setTitle("Add Match Score");
+          stage.initModality(Modality.APPLICATION_MODAL);
+
+          stage.show();
     }
 
     @FXML

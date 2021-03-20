@@ -54,6 +54,10 @@ public class MatchesAdapter {
         int num = 0;
 
         // Add your work code here for Task #3
+        ResultSet set = connection.createStatement().executeQuery("SELECT MAX(MatchNumber) FROM Matches");
+        if (set.next()) {
+            num = set.getInt(1)+1;
+        }
         
         return num;
     }
@@ -67,9 +71,17 @@ public class MatchesAdapter {
     // Get all Matches
     public ObservableList<Matches> getMatchesList() throws SQLException {
         ObservableList<Matches> matchesList = FXCollections.observableArrayList();
-       
-        // Add your code here for Task #2
-        
+
+        // Selected all elements in column Matches, and executing the query
+        Statement statement = connection.createStatement();
+        ResultSet set = statement.executeQuery("SELECT * FROM Matches");
+
+        //Validation loop
+        while(set.next())   {
+            matchesList.add(new Matches(set.getInt(1), set.getString(2), set.getString(3),
+                    set.getInt(4), set.getInt(5)));
+        }
+
         return matchesList;
     }
 
@@ -79,16 +91,20 @@ public class MatchesAdapter {
         ResultSet rs;
         
         // Create a Statement object
-       
+        Statement statement = connection.createStatement();
 
         // Create a string with a SELECT statement
-         
+        String command = "SELECT * FROM Matches";
+
+
 
         // Execute the statement and return the result
-     
+        rs = statement.executeQuery(command);
         
         // Loop the entire rows of rs and set the string values of list
-       
+        while (rs.next()) {
+            list.add(rs.getString(1) + "-"+rs.getString(2) + "-" + rs.getString(3));
+        }
         
         return list;
     }
@@ -96,6 +112,8 @@ public class MatchesAdapter {
     
     public void setTeamsScore(int matchNumber, int hScore, int vScore) throws SQLException
    {
-        // Add your code here for Task #4
-   }  
+       // Add your code here for Task #4
+       connection.createStatement().executeUpdate("UPDATE Matches SET HomeTeamScore = " + hScore + ", VisitorTeamScore = "+ vScore + " WHERE MatchNumber = " + matchNumber);
+   }
+
 }

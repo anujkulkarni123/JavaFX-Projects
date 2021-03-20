@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iPublisher.DeletePublisherController">
+    <center>
+        <GridPane BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="111.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="140.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="377.0" minWidth="10.0" prefWidth="183.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="377.0" minWidth="10.0" prefWidth="171.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="182.0" minHeight="0.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="139.0" minHeight="0.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="110.0" minHeight="0.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="76.0" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="25.0" prefWidth="88.0" text="Publisher Unit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="publisherName" onAction="#buildComboBoxData" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Update Name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Update Address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="updateName" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="updateAddress" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            </children>
+        </GridPane>
+    </center>
+    <top>
+        <Label text="Edit / Delete Publisher Unit" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+            <Insets top="10.0" />
+            </BorderPane.margin>
+        </Label>
+    </top>
+    <bottom>
+        <HBox alignment="TOP_RIGHT" prefHeight="49.0" prefWidth="600.0" BorderPane.alignment="BOTTOM_RIGHT">
+            <children>
+                <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="75.0" text="Update" wrapText="true">
+                    <HBox.margin>
+                        <Insets right="15.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="deleteBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Delete">
+                    <HBox.margin>
+                        <Insets right="15.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="75.0" text="Cancel">
+                    <HBox.margin>
+                        <Insets right="15.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

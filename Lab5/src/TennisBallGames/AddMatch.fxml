@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="250.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TennisBallGames.AddMatchController">
+   <children>
+      <Label fx:id="Title" layoutX="135.0" layoutY="14.0" text="Add New Match  Form" AnchorPane.leftAnchor="89.0" />
+      <Label fx:id="HomeID" layoutX="22.0" layoutY="75.0" text="Home Team" />
+      <Label fx:id="VisitorID" layoutX="22.0" layoutY="127.0" text="Visitor Team" />
+      <ComboBox fx:id="homeTeamComboBox" layoutX="115.0" layoutY="70.0" prefWidth="150.0" />
+      <ComboBox fx:id="visitorTeamComboBox" layoutX="115.0" layoutY="122.0" prefWidth="150.0" />
+      <Label layoutX="47.0" layoutY="100.0" text="VS." />
+      <Button fx:id="saveButton" layoutX="229.0" layoutY="193.0" mnemonicParsing="false" onAction="#save" text="Save" />
+      <Button fx:id="cancelButton" layoutX="135.0" layoutY="193.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+   </children>
+</AnchorPane>
